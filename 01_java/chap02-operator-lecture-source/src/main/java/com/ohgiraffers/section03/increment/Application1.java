@@ -39,6 +39,9 @@ public class Application1 {
         System.out.println("firstNum = " + firstNum);
         System.out.println("firstNum = " + ++firstNum);
 
+        int testNum = 7;
+        System.out.println("testNum = " + testNum++);
+        System.out.println(testNum);
     }
 }
 
