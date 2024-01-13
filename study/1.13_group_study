@@ -1,0 +1,25 @@
+1.13 그룹스터디 
+
+else if 나 esle 다음에 return 값을 줄때는 {}가 필요가 없다 
+
+if (n1 == n2) return 1;
+else return 2;
+
+조건에 따라서 제대로 된 도구를 사용할 수 있어야한다. 
+조건이 있다고 무조건 if문을 사용하는게 아니라, 
+조건 하나에 따라 val 1 / val 2 를 리턴해야 하는 경우 if문보단 삼항연산자가 사용하기 좋음 
+
+재귀연산자 :
+    private int getGcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        
+        return getGcd(b, a % b);
+    }
+    
+String 의 길이 측정 
+: length 를 사용하면 된다 
+String str ; 
+if (str.length <= 8){
+ System.out.print("str의 길이는 8 이하입니다. ")} 
