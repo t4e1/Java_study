@@ -1,0 +1,7 @@
+다차원 배열 / 배열의 복사 / 클래스 / encapsualtion / abstraction / OOP / 생성자
+
+클래스 
+
+추상화된 모아둔 것 
+
+
