@@ -19,4 +19,5 @@ public class SuperClass {
     private void privateMethod(){}
     public final void finalMethod(){}
     protected void protectedMethod(){}
+
 }

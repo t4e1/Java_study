@@ -22,7 +22,7 @@ public class Application {
         /* 설명. abstract 클래스는 객체를 생성할 수 없는 불완전한 클래스이다. */
 //        Product pd1 = new Product();
 
-        /* 설명. abstract 메소드를 구현한 온저난 자식 클래스는 인스턴스(객체)를 생성할 수 있다. */
+        /* 설명. abstract 메소드를 구현한 온전한 자식 클래스는 인스턴스(객체)를 생성할 수 있다. */
         SmartPhone sp1 = new SmartPhone();
 
         Product pd2 = new SmartPhone();     // 다형성 적용
