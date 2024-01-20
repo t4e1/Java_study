@@ -8,7 +8,7 @@ public class LazySingleton {
 
     public static LazySingleton getInstance() {
 
-        if(lazy == null){                           // static 변수인 lazy에 한번도 객체가 생성 및 할당된 적이 없다면
+        if(lazy == null){                           // 'static 변수인 lazy에 한번도 객체가 생성 및 할당된 적이 없다면' 의 뜻
             lazy = new LazySingleton();
         }
         return lazy;

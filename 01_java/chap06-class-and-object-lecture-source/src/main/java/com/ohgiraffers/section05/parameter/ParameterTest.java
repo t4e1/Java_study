@@ -7,8 +7,9 @@ public class ParameterTest {
 
 
     public void testPrimitiveTypeParameter(int num) {
-        num = 10;
         System.out.println("매개변수로 전달받은 값: " + num );
+        num = 10;
+        System.out.println("호출받은 메소드 에서 전달받은 값: " + num );
     }
 
     public void testPrimitiveTypeArrayParameter(int[] iArr) {
@@ -33,6 +34,16 @@ public class ParameterTest {
 
     }
 
+    public void testClassArrayParameter(Rectangle[] r1){
+        System.out.println("========== 클래스 배열 메소드 호출 시작 ===========");
+
+        for (int i = 0; i < r1.length; i++) {
+            System.out.print((i+1) + "번째 ");
+            r1[i].calArea();
+        }
+
+        System.out.println("========== 클래스 배열 메소드 호출 종료 ===========");
+    }
 
     public void testVariableLengthArrayParameter(String... str) {
         System.out.println(Arrays.toString(str));

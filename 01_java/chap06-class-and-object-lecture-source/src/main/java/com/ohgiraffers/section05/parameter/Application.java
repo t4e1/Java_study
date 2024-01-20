@@ -1,5 +1,7 @@
 package com.ohgiraffers.section05.parameter;
 
+import com.ohgiraffers.section08.object_array.Car;
+
 import java.util.Arrays;
 
 public class Application {
@@ -38,6 +40,13 @@ public class Application {
         pt.testClassTypeParameter(r1);
 
         /* 목차. 4. 아직 클래스 배열(객체 배열)은 배우지 않았으므로 건너 뜀 */
+        /* 개인 공부로 추가함 */
+        Rectangle[] r2 = new Rectangle[3];
+        r2[0] = new Rectangle(10, 20);
+        r2[1] = new Rectangle(20, 30);
+        r2[2] = new Rectangle(30, 30);
+
+        pt.testClassArrayParameter(r2);
 
         /* 목차. 5. 가변인자를 매개변수로 전달 받는 메소드 호출 */
         pt.testVariableLengthArrayParameter();
