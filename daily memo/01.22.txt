@@ -1,0 +1,23 @@
+Time / 
+
+Date형 
+최초의 날짜 관련 데이터타입 
+아직 제대로 생각하지 않고 만들어서 윤초를 고려하지 않는 등 문제점이 있음 
+지금 사용할거면 Time만 사용해도 되지만, 현업에서 Date타입으로 받는 경우 수정을 할 수 있어야 하기 때문에 알아는 두어야함 
+
+long 타입? 
+SimpleDateFormat 
+
+java.sql.Date : DB의 데이터 타입을 받아 올때 java.sql.Date를 사용 
+
+Calendar 
+
+Time
+SimpleDateFormat : 원하는 문자열로 패턴 변경해줌 
+-> 프론트 쪽에서 특정 문자열을 요구할 경우 만들어서 줄 수 있음 
+
+DB -> Back -> Front 까지
+ : java.sql.Date
+sql.Date -> util.Date 로 변경 
+util.Date -> Calendar 로 변경 
+SimpleDateFormat 으로 화면에 넣을 문자열로 변형 
