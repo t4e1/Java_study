@@ -16,7 +16,7 @@ Time
 SimpleDateFormat : 원하는 문자열로 패턴 변경해줌 
 -> 프론트 쪽에서 특정 문자열을 요구할 경우 만들어서 줄 수 있음 
 
-DB -> Back -> Front 까지
+Date타입 : DB -> Back -> Front 까지
  : java.sql.Date
 sql.Date -> util.Date 로 변경 
 util.Date -> Calendar 로 변경 
