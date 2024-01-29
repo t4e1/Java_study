@@ -35,8 +35,8 @@ public class Application {
             switch(input) {
                 case 1 : ps.addProduct(getInfo()); break;
                 case 2 :
-                case 3 :
-                case 4 :
+                case 3 : ps.selectProduct(getProductNumber()); break;
+                case 4 : ps.selectAllProducts(); break;
                 case 5 :
                 case 6 :
                 case 7 :
@@ -46,7 +46,13 @@ public class Application {
 
         } while (true);
 
+    }
 
+    /* 상품 조회에 사용할 상품 코드 입력용 메소드 */
+    private static int getProductNumber() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회하실 상품 번호를 입력해 주세요: ");
+        return sc.nextInt();
     }
 
     /* 상품 등록시 사용할 상품 정보 입력 메소드 */
@@ -54,20 +60,18 @@ public class Application {
         Product newInfo = null;
         Scanner sc = new Scanner(System.in);
 
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>");
         System.out.print("상품명을 입력해 주세요: ");
         String productName = sc.nextLine();
         System.out.print("상품의 브랜드를 입력해 주세요: ");
         String productBrand = sc.nextLine();
         System.out.print("상품 가격을 입력해 주세요: ");
         int productPrice = sc.nextInt();
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<");
 
         newInfo = new Product(productName, productBrand, productPrice);
-        System.out.println(newInfo);
+
         return newInfo;
     }
 
-    // 등록한 상품
-    private static int getNumber() {
-        return 0;
-    }
 }
