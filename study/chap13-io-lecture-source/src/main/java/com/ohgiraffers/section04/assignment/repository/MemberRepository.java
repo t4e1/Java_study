@@ -150,4 +150,17 @@ public class MemberRepository {
         }
         return 0;
     }
+
+    /* 업데이트한 memberList 를 DB에 출력 */
+    public int updateMember(int memNo) {
+        for(int i = 0; i < memberList.size(); i++) {
+            if (memberList.get(i).getMemNo() == memNo) {
+//
+                memberList. ;
+                saveMembers(memberList);
+                return 1;
+            }
+        }
+        return 0;
+    }
 }

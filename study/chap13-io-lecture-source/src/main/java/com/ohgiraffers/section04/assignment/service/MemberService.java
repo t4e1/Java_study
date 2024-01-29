@@ -59,4 +59,13 @@ public class MemberService {
         }
         System.out.println("회원 탈퇴에 실패하였습니다.");
     }
+
+    public void updateMember(int memNo, Member getInfo) {
+        int result = mr.updateMember(memNo);
+        if (result > 0) {
+            System.out.println(memNo + "번 회원 탈퇴 성공");
+            return;
+        }
+        System.out.println("회원 정보 수정에 실패하였습니다.");
+    }
 }

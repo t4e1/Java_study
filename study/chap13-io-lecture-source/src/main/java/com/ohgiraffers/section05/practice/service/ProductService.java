@@ -8,7 +8,6 @@ public class ProductService {
     private final ProductRepository pr = new ProductRepository();
 
     public void addProduct(Product getInfo) {
-        pr.
     }
 
     public void selectProduct(int getNumber) {

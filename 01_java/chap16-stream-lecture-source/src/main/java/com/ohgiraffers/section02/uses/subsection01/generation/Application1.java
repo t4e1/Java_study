@@ -14,7 +14,7 @@ public class Application1 {
         /* 필기.
          *  Arrays.stream(배열): 배열 자료형을 Stream 자료형으로 변환
         * */
-        /* 설명. 1. 배열로 스트름 생성 */
+        /* 설명. 1. 배열로 스트림 생성 */
         Stream<String> strStream1 = Arrays.stream(sArr);
         strStream1.forEach(System.out::println);
 //        strStream1.forEach(s -> System.out.println(s));       // 위와 똑같은 기능을 가진다
@@ -26,6 +26,11 @@ public class Application1 {
 
         /* 설명. 2. 컬렉션으로 스트림 생성 */
         List<String> stringList = Arrays.asList("html", "css", "javascript");
+        System.out.println("1111111111111111111");
+        for(String str : stringList){
+            System.out.println("str = " + str);
+        }
+        System.out.println("1111111111111111111");
 
         Stream<String> stringStream3 = stringList.stream();
         stringStream3.forEach(System.out::println);

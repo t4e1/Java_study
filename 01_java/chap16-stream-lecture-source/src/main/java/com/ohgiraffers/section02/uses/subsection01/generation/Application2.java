@@ -1,5 +1,7 @@
 package com.ohgiraffers.section02.uses.subsection01.generation;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
@@ -37,6 +39,7 @@ public class Application2 {
         splitStream.forEach(System.out::println);
 
         String[] strArr = "abc, def, g".split(", ");
+
 
     }
 }
