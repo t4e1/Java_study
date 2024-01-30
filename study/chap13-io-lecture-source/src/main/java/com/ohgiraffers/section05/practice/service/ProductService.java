@@ -4,6 +4,7 @@ import com.ohgiraffers.section05.practice.aggregate.Product;
 import com.ohgiraffers.section05.practice.repository.ProductRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductService {
 
@@ -31,13 +32,15 @@ public class ProductService {
 
     public void selectProduct(int productCode) {
 
+        List<Product> selectList = pr.selectAllProducts();
+        for(int i = 0; )
+
         System.out.println("서비스단까지 테스트");
         System.out.println("선택하신 상품 정보: " +  pr.selectAllProducts().get(productCode));
     }
 
     public void selectAllProducts() {
 
-        System.out.println("전체 출력 테스트 - 서비스단");
         ArrayList<Product> selectAllProduct = pr.selectAllProducts();
         selectAllProduct.stream().forEach(x -> System.out.println(x));
 

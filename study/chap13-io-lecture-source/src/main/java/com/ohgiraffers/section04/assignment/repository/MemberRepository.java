@@ -156,7 +156,7 @@ public class MemberRepository {
         for(int i = 0; i < memberList.size(); i++) {
             if (memberList.get(i).getMemNo() == memNo) {
 //
-                memberList. ;
+//                memberList. ;
                 saveMembers(memberList);
                 return 1;
             }

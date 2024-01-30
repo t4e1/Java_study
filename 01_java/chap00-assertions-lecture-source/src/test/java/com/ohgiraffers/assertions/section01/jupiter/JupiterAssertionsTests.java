@@ -30,7 +30,6 @@ public class JupiterAssertionsTests {
         Assertions.assertEquals(expected, result, 1);                       // 허용 오차범위 지정
         Assertions.assertEquals(expected, result, "이건 정확해야 해!!");    // 메세지 출력 가능
 
-
     }
 
     /* 목차. 2. assertNotEquals */
@@ -97,16 +96,16 @@ public class JupiterAssertionsTests {
     /* 목차. 7. assertThrows */
     @Test
     @DisplayName("반환형이 void인 메소드의 경우 exception이 발생하는지 테스트")
-    void testeeAssertThrows() {
+    void testAssertThrows() {
 
         int firstNum = 10;
-        int secondNum = 10;
-        String expectedErrorMessage = "0으로 나눌 수 없습니다";
+        int secondNum = 0;
+        String expectedErrorMessage = "0으로 나눌 수 없습니다.";
 
         PositiveNumberValidator validator = new PositiveNumberValidator();
         Exception exception = Assertions.assertThrows(
                 Exception.class,
-                () -> validator.checkDividableNumber(firstNum, secondNum)
+                () -> validator.checkDividableNumbers(firstNum, secondNum)
         );
 
         Assertions.assertAll(
