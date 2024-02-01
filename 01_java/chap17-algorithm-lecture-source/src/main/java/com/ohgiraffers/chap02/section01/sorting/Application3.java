@@ -3,7 +3,7 @@ package com.ohgiraffers.chap02.section01.sorting;
 /* 수업목표. 상입 정렬을이해할 수 있다. */
 /* 필기.
  *  삽입 정렬(Insertion Sort)
- *   이미 정렬된 데이터 범위ㅏ에 정렬되지 않은 데이터를 적절한 위치에 삽입시켜 정렬하는 방식
+ *   이미 정렬된 데이터 범위에 정렬되지 않은 데이터를 적절한 위치에 삽입시켜 정렬하는 방식
  *   시간 복잡도는 O(n^2)이고 효율적이지는  않다.
 * */
 public class Application3 {

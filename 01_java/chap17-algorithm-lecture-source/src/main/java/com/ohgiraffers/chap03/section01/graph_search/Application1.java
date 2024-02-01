@@ -12,10 +12,10 @@ import java.util.StringTokenizer;
 * */
 public class Application1 {
 
-    static boolean[] visit;
-    static int[][] map;
-    static int count = 0;
-    static int node, edge;
+    static boolean[] visit;     // 방문여부
+    static int[][] map;         // map 생성 배열
+    static int count = 0;       // 바이러스
+    static int node, edge;      // 노드, 간선 수
 
     /* 설명. 테스트 코드에서 입력 받는 방식을 문제에서 요구하는 대로 작성하고 문자열로 입력 받기 위해 변경 된 코드 */
     public static BufferedReader toBufferedReader(String string) {
@@ -63,6 +63,7 @@ public class Application1 {
         /* 설명. 넘어온 노드와 연관된 노드를 찾는 반복문(기존에 방문하지 않았던) */
         for (int i = 0; i < node; i++) {
             if (map[start][i] == 1 && !visit[i]) {
+                System.out.println("i : " + i + "visit[i] : " + visit[i]);
                 dfs(i);
             }
         }
