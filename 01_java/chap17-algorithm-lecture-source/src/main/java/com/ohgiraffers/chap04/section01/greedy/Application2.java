@@ -27,7 +27,7 @@ public class Application2 {
         int count = 0;                      // 지불할 동전의 개수
 
         for (int i = N - 1; i >= 0; i--) {            // 큰 금액의 동전부터 처리될 수 있게 반복문 작성
-//            System.out.println(coin[i] + "로 지불하기 전 금액 : " + K);
+            System.out.println(coin[i] + "로 지불하기 전 금액 : " + K);
             if (coin[i] <= K) {
                 count += (K / coin[i]);     // K / coin[i] 의 몫
 
@@ -37,8 +37,8 @@ public class Application2 {
 //            else if (K == 0){     // 개선 코드. 기존 코드면 무조건 i를 반복하는데, 잔여 금액을 계산해서 0이면 바로 리턴하도록
 //                return count;
 //            }
-//            System.out.println(coin[i] + "로 지불한 뒤 잔여 금액 : " + K);
-//            System.out.println("현재 동전의 수 : " + count);
+            System.out.println(coin[i] + "로 지불한 뒤 잔여 금액 : " + K);
+            System.out.println("현재 동전의 수 : " + count);
         }
 
         return count;

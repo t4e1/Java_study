@@ -1,0 +1,11 @@
+dynampic programming / DDD / 
+
+재귀를 사용했을 때 네거티브 인덱스에 대해서 처리가 안되고 있다 
+(dp -3 예제) 왜 그런건지 찾아보기 
+
+
+DDD 
+
+monolithin 방식 - 하나의 DB로 부터 하나의 프로젝트가 있는것 
+msa
+
