@@ -33,7 +33,8 @@ public class Application1Tests {
                 arguments(input3, output3)
         );
     }
-    @DisplayName("dp1")
+
+    @DisplayName("array practice")
     @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
     @ParameterizedTest
     @MethodSource("provideSource")
