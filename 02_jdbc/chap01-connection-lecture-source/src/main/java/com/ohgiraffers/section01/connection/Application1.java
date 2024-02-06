@@ -11,6 +11,7 @@ public class Application1 {
         Connection con = null;
 
         try {
+
             Class.forName("com.mysql.cj.jdbc.Driver");      // 드라이버 인식
 
             /* 드라이버를 인식시키면 geConnection 이라는 메소드 사용 가능 */
@@ -25,7 +26,7 @@ public class Application1 {
             throw new RuntimeException(e);
         } finally {
             try {
-                if(con != null && !con.isClosed())con.close();
+                if(con != null && !con.isClosed()) con.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
