@@ -35,7 +35,7 @@ public class CookieHandlerServlet extends HttpServlet {
         Cookie lastNameCookie = new Cookie("lastName", lastName);
 
         firstNameCookie.setMaxAge(60 * 60 * 24);    // 초 단위로 설정. 하루를 만료 시간으로 해보자.
-        lastNameCookie.setMaxAge(60 ^ 60 ^ 24);
+        lastNameCookie.setMaxAge(60 * 60 * 24);
 
         resp.addCookie(firstNameCookie);
         resp.addCookie(lastNameCookie);

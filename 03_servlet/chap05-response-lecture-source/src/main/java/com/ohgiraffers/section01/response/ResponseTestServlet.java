@@ -19,7 +19,7 @@ public class ResponseTestServlet extends HttpServlet {
 
         /* 설명. Servlet 사용 이유
          *  1. 요청 받기(http method GET/POST 요청에 따른 parameter로 전달 받은 데이터를 꺼낼 수 있다.)
-         *  2. 비즈니스 로직 처리(DB접속과 CRUD에 대한 로직 처리 시작 부분 -> 서비ㅡㅅ 계층 호출(MVC2구조기반))
+         *  2. 비즈니스 로직 처리(DB접속과 CRUD에 대한 로직 처리 시작 부분 -> 서비스 계층 호출(MVC2구조기반))
          *  3. 응답하기(문자열을 통한 동적인 웹(HTML 페이지)페이지를 만들어서 스트림을 통해 내보내기 (SSR 기술)
         * */
 
@@ -39,7 +39,7 @@ public class ResponseTestServlet extends HttpServlet {
 //        resp.setContentType("text/html");
 //        resp.setCharacterEncoding("UTF-8");
 
-        /* 필기. 2. MIME 타입고ㅑㅏ 인코딩 방식을 setContentType으로 한번에 설정 */
+        /* 필기. 2. MIME 타입과 인코딩 방식을 setContentType으로 한번에 설정 */
         resp.setContentType("text/html; charset=UTF-8");  // 10버전 이전에는 이렇게 쓰는게 정석이기 때문에 이것만 기억해도 된다.
 
         /* 설명. tomcat 10버전 이후 */
