@@ -1,34 +1,40 @@
-package com.ohgiraffers.common;
+package com.personal.practice.part01.common;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class JDBCTemplate {
+
     public static Connection getConnection() {
         Connection con = null;
         Properties prop = new Properties();
 
+        System.out.println(" 여기 까지 가능? ");
+        System.out.println(" 여기 까지 가능?2 ");
+
         try {
             prop.load(
-                    new FileReader
-                            ("src/main/java/com/ohgiraffers/config/connection-info.properties"));
+                    new FileReader("src/main/java/com/personal/practice/config/connectInfo.properties"));
+
             String driver = prop.getProperty("driver");
             String url = prop.getProperty("url");
 
-            Class.forName(driver);
+            Class.forName(driver);  // 어떤 드라이버를 사용할 것이지 지정
 
             con = DriverManager.getConnection(url, prop);
 
-            /* 설명. DML(insert, update, delete)실행 시 커밋을 수동으로 넣겠다는 설정 */
-            con.setAutoCommit(false);
+            con.getAutoCommit();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -37,23 +43,8 @@ public class JDBCTemplate {
 
     public static void close(Connection con) {
         try {
-            if(con != null && !con.isClosed()) con.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void close(Statement stmt) {
-        try {
-            if(stmt != null && !stmt.isClosed()) stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void close(ResultSet rset) {
-        try {
-            if(rset != null && !rset.isClosed()) rset.close();
+            if (con != null && !con.isClosed())
+                con.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -77,5 +68,3 @@ public class JDBCTemplate {
         }
     }
 }
-
-
