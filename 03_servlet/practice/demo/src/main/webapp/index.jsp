@@ -7,9 +7,9 @@
 <body>
 <h1><%= "Hello World!" %></h1>
 <br>
-<a href="searchMember">DoGet 방식 요청</a>
+<a href="member/viewer">선택한 회원 조회</a>
 <br>
-<form action="memberRegister" method="post">
+<form action="member/register" method="post">
   <label>아이디: </label>
   <input type="text" name="userId">
   <br>

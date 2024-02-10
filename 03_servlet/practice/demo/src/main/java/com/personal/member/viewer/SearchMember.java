@@ -1,4 +1,4 @@
-package com.personal.practice.part02;
+package com.personal.member.viewer;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

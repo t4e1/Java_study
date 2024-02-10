@@ -1,6 +1,5 @@
-package com.personal.practice.part01.common;
+package com.personal.member.common;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,12 +13,11 @@ public class JDBCTemplate {
         Connection con = null;
         Properties prop = new Properties();
 
-        System.out.println(" 여기 까지 가능? ");
-        System.out.println(" 여기 까지 가능?2 ");
+        System.out.println("getConnection 시작하고 try전까지");
 
         try {
             prop.load(
-                    new FileReader("src/main/java/com/personal/practice/config/connectInfo.properties"));
+                    new FileReader("C:/study/java/03_servlet/practice/demo/src/main/java/com/personal/member/config/connection-info.properties"));
 
             String driver = prop.getProperty("driver");
             String url = prop.getProperty("url");
@@ -28,13 +26,16 @@ public class JDBCTemplate {
 
             con = DriverManager.getConnection(url, prop);
 
-            con.getAutoCommit();
-
+            con.setAutoCommit(false);
+            System.out.println("커넥션 객체 생성됨");
         } catch (ClassNotFoundException e) {
+            System.out.println("e = " + e);
             throw new RuntimeException(e);
         } catch (SQLException e) {
+            System.out.println("e = " + e);
             throw new RuntimeException(e);
         } catch (IOException e) {
+            System.out.println("e = " + e);
             throw new RuntimeException(e);
         }
 

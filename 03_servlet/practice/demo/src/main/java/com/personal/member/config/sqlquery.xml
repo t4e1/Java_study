@@ -3,14 +3,18 @@
 <properties>
     <entry key="insert">
         INSERT
-          INTO menu (
-        , member_id
-        , member_password
-        , member_name )
-          VALUES (
+          INTO member
+        (
+          MEMBER_ID
+        , MEMBER_PASSWORD
+        , MEMBER_NAME
+        )
+          VALUES
+        (
           ?
         , ?
-        , ? );
+        , ?
+        )
     </entry>
     <entry key="update">
         UPDATE member
@@ -18,11 +22,11 @@
           member_password = ?
         , member_name = ?
         WHERE
-          member_id = ? ;
+          member_id = ?
     </entry>
     <entry key="delete">
         DELETE member
-        WHERE member_id = ? ;
+        WHERE member_id = ?
     </entry>
     <entry key="select">
         SELECT
@@ -33,6 +37,6 @@
         FROM
           member
         WHERE
-          member_id = ?;
+          member_id = ?
     </entry>
 </properties>

@@ -1,5 +1,6 @@
-package com.personal.practice.part01;
+package com.personal.member.register;
 
+import com.personal.member.common.Member;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,8 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/memberRegister")
-public class MemberController extends HttpServlet {
+@WebServlet("/member/register")
+public class RegisterController extends HttpServlet {
 
     Member memberInfo = new Member();
 
@@ -19,9 +20,13 @@ public class MemberController extends HttpServlet {
 
         memberInfo.setUserId(req.getParameter("userId"));
         memberInfo.setUserPass(req.getParameter("password"));
-        memberInfo.setUserId(req.getParameter("name"));
+        memberInfo.setUserName(req.getParameter("name"));
 
-        MemberService.registMember(memberInfo);
+        System.out.println("member정보 객체 생성됨");
+
+        int result = RegisterService.registMember(memberInfo);
+
+        /* 결과 받아서 출력해줄 서블릿으로 포워딩 추가 */
     }
 
 }

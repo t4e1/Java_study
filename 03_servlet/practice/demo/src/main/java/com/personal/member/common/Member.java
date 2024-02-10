@@ -1,8 +1,10 @@
-package com.personal.practice.part01;
+package com.personal.member.common;
+
+import java.io.Serializable;
 
 /* 입력받은 정보를 전달할 DTO 클래스 */
 /* DTO 클래스 -> 생성자, getter/setter, toString 전부 생성할 것 */
-public class Member {
+public class Member implements Serializable {
 
     private int code;
     private String userId;
