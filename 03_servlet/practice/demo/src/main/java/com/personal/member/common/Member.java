@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /* 입력받은 정보를 전달할 DTO 클래스 */
 /* DTO 클래스 -> 생성자, getter/setter, toString 전부 생성할 것 */
+/* 롬북 라이브러리를 받으면 @Getter 등 어노테이션만 달아도 생성된 것처럼 사용 가능 */
 public class Member implements Serializable {
 
     private int code;

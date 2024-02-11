@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/searchMember")
+@WebServlet("/member/viewer")
 public class SearchMember extends HttpServlet {
 
     @Override

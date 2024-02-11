@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/* 쿼리 간결화를 위한 JDBC 템플릿을 모아두는 클래스 */
 public class JDBCTemplate {
 
     public static Connection getConnection() {
