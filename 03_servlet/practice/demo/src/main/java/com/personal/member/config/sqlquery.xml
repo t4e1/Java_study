@@ -38,5 +38,7 @@
           member
         WHERE
           member_id = ?
+        AND
+          member_password = ?
     </entry>
 </properties>
