@@ -1,4 +1,4 @@
-package com.personal.member.register;
+package com.personal.member;
 
 import com.personal.member.common.Member;
 
@@ -12,7 +12,7 @@ import static com.personal.member.common.JDBCTemplate.*;
  * 2. 생성한 커넥트 객체랑 넘겨받은 DTO 객체 Repo 로 넘기기
  * 3. Repo 에서 받은 성공/실패 결과 가지고 commit / rollback 결정
 * */
-public class RegisterService {
+public class MemberService {
 
     public static int registMember(Member memberInfo) {
 
@@ -21,7 +21,7 @@ public class RegisterService {
 //        System.out.println("Connection 객체 호출됨 ");
         int result = 0;                                 // 결과를 받을 변수 result 선언
 
-        result = RegisterRepository.registMember(con, memberInfo);      //Repo로 부터 받은 결과값으로 초기화
+        result = MemberRepository.registMember(con, memberInfo);      //Repo로 부터 받은 결과값으로 초기화
 
         if (result > 0) {
             commit(con);            // 결과가 성공이면 commit, 실패하면 rollback을 처리하는 트랜잭션 처리부분
@@ -37,4 +37,20 @@ public class RegisterService {
         return result;              // 결과값 Controller로 반환해서 출력 서블릿에 넘길 수 있도록
     }
 
+    public static int viewMember(Member viewInfo) {
+
+        Connection con = getConnection();
+
+        int result = 0;
+        result = MemberRepository.selectMember(viewInfo, con);
+
+        if (result > 0) {
+            commit(con);
+        } else {
+            rollback(con);
+        }
+
+        return result ;
+
+    }
 }

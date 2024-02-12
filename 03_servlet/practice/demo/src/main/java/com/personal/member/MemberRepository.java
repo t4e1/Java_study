@@ -1,20 +1,21 @@
-package com.personal.member.register;
+package com.personal.member;
 
 import com.personal.member.common.Member;
 
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.Properties;
 
 /* Repository 단에서 할 일 */
 /* 1. Service로부터 받아온 객체(Connection, Member)를 사용하여 DB 쿼리 작성.
  * 2. 작성한 쿼리를 DB로 전달, 결과를 service로 반환
 * */
-public class RegisterRepository {
+public class MemberRepository {
 
     public static int registMember(Connection con, Member memberInfo) {
 
@@ -45,5 +46,32 @@ public class RegisterRepository {
 
 //        System.out.println("result : " + result);
         return result;          // 쿼리의 결과값 반환
+    }
+
+    public static ResultSet electMember(Member viewInfo, Connection con) {
+
+        Properties prop = new Properties();
+        ResultSet result = null;
+
+        try {
+            prop.loadFromXML(
+                    new FileInputStream("C:/study/java/03_servlet/practice/demo/src/main/java/com/personal/member/config/sqlquery.xml"));
+
+            String query = prop.getProperty("insert");
+
+            PreparedStatement ps = null;
+            ps.setString(1, viewInfo.getUserId());
+            ps.setString(2, viewInfo.getUserPass());
+
+            ps.executeQuery();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return result;
     }
 }

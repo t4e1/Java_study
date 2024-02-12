@@ -1,4 +1,4 @@
-package com.personal.member.register;
+package com.personal.member;
 
 import com.personal.member.common.Member;
 import jakarta.servlet.RequestDispatcher;
@@ -26,7 +26,7 @@ public class RegisterController extends HttpServlet {
 
 //        System.out.println("member정보 객체 생성됨");
 
-        int result = RegisterService.registMember(memberInfo);          // 결과 변수 생성 & 서비스단 호출로 멤버객체 넘김
+        int result = MemberService.registMember(memberInfo);          // 결과 변수 생성 & 서비스단 호출로 멤버객체 넘김
 
         /* Controller -> Service -> Repository -> DB -> Repository -> Service -> Controller 로 넘어온 결과값 */
         /* attribute에 넣어서 화면 출력 서블릿으로 넘길 수 있게함  */
