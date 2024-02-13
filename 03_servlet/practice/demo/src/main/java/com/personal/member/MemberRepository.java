@@ -3,7 +3,6 @@ package com.personal.member;
 import com.personal.member.common.Member;
 
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,7 +47,7 @@ public class MemberRepository {
         return result;          // 쿼리의 결과값 반환
     }
 
-    public static ResultSet electMember(Member viewInfo, Connection con) {
+    public static ResultSet selectMember(Member viewInfo, Connection con) {
 
         Properties prop = new Properties();
         ResultSet result = null;
@@ -60,11 +59,15 @@ public class MemberRepository {
             String query = prop.getProperty("insert");
 
             PreparedStatement ps = null;
+            ps = con.prepareStatement(query);
+
             ps.setString(1, viewInfo.getUserId());
             ps.setString(2, viewInfo.getUserPass());
 
-            ps.executeQuery();
+            result = ps.executeQuery();
+            System.out.println(result);
 
+            return result;
         } catch (IOException e) {
             throw new RuntimeException(e);
 
@@ -72,6 +75,5 @@ public class MemberRepository {
             throw new RuntimeException(e);
         }
 
-        return result;
     }
 }

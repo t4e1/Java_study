@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 
 @WebServlet("/member/viewer")
 public class ViewerController extends HttpServlet {
@@ -20,7 +21,14 @@ public class ViewerController extends HttpServlet {
         viewInfo.setUserId(req.getParameter("userId"));
         viewInfo.setUserPass(req.getParameter("password"));
 
-        MemberService.viewMember(viewInfo);
+        ResultSet result = MemberService.viewMember(viewInfo);
+        String resultStr = "";
+
+//        while (result.next()) {
+//
+//        }
+
+        req.getAttribute(resultStr);
 
 
     }

@@ -3,6 +3,7 @@ package com.personal.member;
 import com.personal.member.common.Member;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 
 import static com.personal.member.common.JDBCTemplate.*;
 
@@ -37,20 +38,19 @@ public class MemberService {
         return result;              // 결과값 Controller로 반환해서 출력 서블릿에 넘길 수 있도록
     }
 
-    public static int viewMember(Member viewInfo) {
+    public static ResultSet viewMember(Member viewInfo) {
 
         Connection con = getConnection();
 
-        int result = 0;
+        ResultSet result = null;
         result = MemberRepository.selectMember(viewInfo, con);
 
-        if (result > 0) {
+        if (result != null) {
             commit(con);
         } else {
             rollback(con);
         }
 
-        return result ;
-
+        return result;
     }
 }
