@@ -1,0 +1,40 @@
+spring / di / 
+
+지금까지 mvc 아키텍쳐에서 jdbc 로 서비스 ~ db , 서블릿에서 view~controller 를 구성 하는 것을 배웠다. 
+spring framework는 이런 작업들을 프레임워크를 사용해서 해보는 것 
+
+springboot는 spring에서 라이브러리 관리를 쉽게 만든 것 . 
+
+spring-context.xml : 스프링 컨테이너가 관리해야 할 빈을 정의하는 파일 ( = ContexdtConfiguration 이랑 같음) 로 많이 씀 
+
+
+spring container: 
+컨테이너를 정의하는 방식으로는 java class 방식 , xml 방식, annotation 방식 세 방식이 있다. annotation 을 많이 사용 
+xml방식과 annotation 방식 두 방식을 혼용해서 사용할 수 있다. 
+컨테이너를 만들 때 양쪽 모두를 훑어본 다음 객체를 만듬 
+
+IOC가 무엇인가? 대답할 수 있게 준비 
+
+
+di (dependency injection) 
+bean 객체가 생성된 다음, A라는 객체가 B라는 객체를 가져야 할 경우 객체 생성 및 B객체 주입까지 자동으로 해주는게 DI 
+
+
+DAO 계층을 DAO 와 DAOImpl 두개로 나누는 이유 
+서비스 계층 까지는 DAO 만 알게 하고 DAOImpl은 숨기기위해 (PSA)
+다형성 ( 타입 은닉 ) -> 실제로는 DAOImpl 타입인데, DAO로 숨기고 사용 
+-> 유지보수, 확장성에 유리   
+
+
+MVC 패턴에서, 
+Controller 에는 다음에 갈 Service 객체가 주입되어야 하고, (ex. MenuService service = new MenuService(); ) 
+Service 에는 다음에 갈 DAO/Repository 객체가 주입되어야 한다. 
+이 주입되는 부분을 대신 해줘서 사용자가 new로 객체를 만들 필요가 없게끔 하는 것이 DI
+
+
+생성자 주입 vs 필드 주입 
+생성자 주입은 필드에 final을 달 수 있다. 필드는 붙일 수 없음 
+생성자에 의한 초기화를 하면 해당 빈이 없을 때 컨테이너가 안켜지도록 막아줌 (처음부터 에러를 띄워줌) 
+생성자에 의한 초기화를 하면 순환참조를 처음부터 막아준다 
+( 서비스 <- DAO 가 아니라 서비스 <-> DAO 로 설정될 경우 처음부터 막아줌
+애초에 service에서는 controller 객체를 가지지 않고, repository/dao 에서는 service 객체를 가지지 않아야 한다. 단지 결과값이 반환될 뿐  ) 
