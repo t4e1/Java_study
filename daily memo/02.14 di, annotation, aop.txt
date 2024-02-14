@@ -1,0 +1,37 @@
+IOC Container / DI/ AOP /
+
+Container에서 어노테이션들을 사용해서 bean 객체를 관리하는 방법 
+
+@Primay 
+@Qualifier
+Collection 으로 여러 bean 객체 받기 
+@Resource
+@Inject ( + @Named)
+
+@Scope
+@Bean(initMethod , destoryMethod)
+
+
+AOP
+
+OOP + @ (aspect)
+Aspect Oriented Programming Language ( 관점 지향 언어 )
+Aspect? -> 
+Cross-cutting Concern. : 어떤 도메인의 서비스 계층이던지 동일하게 실행되어야 하는 기능 
+Primary Concern : 
+
+AOP ? Primary Concern 마다 지정되어야 할 Cross-cutting Concern 을 지정하는 것
+= 어디든지 공통적으로 적용되어야 할 것을 따로 셋팅해서 적용될 수 있게 하는 기술 
+= 모듈화 시켜서 공통적으로 적용시켜야지 
+
+Advice : Cross-cutting 으로 동작할 기능 
+Point-cut : Advice가 실행될 위치 
+Advice + Point-cut = Aspect 
+-> 이것을 추구하는 언어가 AOP 
+
+Proxy : source code에서 추가 기능을 덧붙이고 싶을 때, target object(원본 코드)를 건드리지 않고 주위에 Advice를 덧붙여서 구현함. 이것을 프록시라 한다. 
+
+joinpoint : 어드바이스가 적용 될 수 있는 위치 
+pointcut : 실제로 어드바이스가 적용 되는 위치 
+(joinpoint > pointcut 의 느낌) 
+
