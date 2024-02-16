@@ -1,0 +1,4 @@
+SpringBoot - RequestParam, 
+
+
+defaultvlaue 값이 안넘어오거나 매개변수와 일치하는 키값이 없을 때 defaultvalue가 들어옴 
