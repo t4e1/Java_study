@@ -4,6 +4,7 @@ import com.personal.member.common.Member;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import static com.personal.member.common.JDBCTemplate.*;
 
@@ -12,7 +13,7 @@ import static com.personal.member.common.JDBCTemplate.*;
 /* 1. 커넥트 객체 생성
  * 2. 생성한 커넥트 객체랑 넘겨받은 DTO 객체 Repo 로 넘기기
  * 3. Repo 에서 받은 성공/실패 결과 가지고 commit / rollback 결정
-* */
+ * */
 public class MemberService {
 
     public static int registMember(Member memberInfo) {
@@ -38,18 +39,16 @@ public class MemberService {
         return result;              // 결과값 Controller로 반환해서 출력 서블릿에 넘길 수 있도록
     }
 
-    public static ResultSet viewMember(Member viewInfo) {
+    public static String viewMember(Member viewInfo) {
 
         Connection con = getConnection();
 
-        ResultSet result = null;
+        String result = " ";
+        StringBuilder sb = new StringBuilder();
         result = MemberRepository.selectMember(viewInfo, con);
+//        System.out.println("결과 반환 여기까지 되나? ");
 
-        if (result != null) {
-            commit(con);
-        } else {
-            rollback(con);
-        }
+        close(con);
 
         return result;
     }

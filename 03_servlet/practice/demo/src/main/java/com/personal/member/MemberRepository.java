@@ -47,16 +47,17 @@ public class MemberRepository {
         return result;          // 쿼리의 결과값 반환
     }
 
-    public static ResultSet selectMember(Member viewInfo, Connection con) {
+    public static String selectMember(Member viewInfo, Connection con) {
 
         Properties prop = new Properties();
-        ResultSet result = null;
+        ResultSet rset = null;
+        String result = "";
 
         try {
             prop.loadFromXML(
                     new FileInputStream("C:/study/java/03_servlet/practice/demo/src/main/java/com/personal/member/config/sqlquery.xml"));
 
-            String query = prop.getProperty("insert");
+            String query = prop.getProperty("select");
 
             PreparedStatement ps = null;
             ps = con.prepareStatement(query);
@@ -64,8 +65,12 @@ public class MemberRepository {
             ps.setString(1, viewInfo.getUserId());
             ps.setString(2, viewInfo.getUserPass());
 
-            result = ps.executeQuery();
-            System.out.println(result);
+            rset = ps.executeQuery();
+
+            while (rset.next()) {
+                result = rset.getInt(1) + rset.getString(2)
+                        + rset.getString(3) + rset.getString(4);
+            }
 
             return result;
         } catch (IOException e) {

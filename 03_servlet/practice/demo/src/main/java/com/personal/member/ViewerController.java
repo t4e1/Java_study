@@ -1,6 +1,7 @@
 package com.personal.member;
 
 import com.personal.member.common.Member;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,15 +22,10 @@ public class ViewerController extends HttpServlet {
         viewInfo.setUserId(req.getParameter("userId"));
         viewInfo.setUserPass(req.getParameter("password"));
 
-        ResultSet result = MemberService.viewMember(viewInfo);
-        String resultStr = "";
+        String result = MemberService.viewMember(viewInfo);
 
-//        while (result.next()) {
-//
-//        }
-
-        req.getAttribute(resultStr);
-
-
+        req.setAttribute("result", result);
+        RequestDispatcher printRd = req.getRequestDispatcher("print2");
+        printRd.forward(req, resp);
     }
 }
