@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3 align="center">회원 가입</h3>
+    <form action="/member/registMember" method="post">
+        Id를 입력해 주세요 : <input type="text" name="userId"><br>
+        비밀 번호를 입력해 주세요 : <input type="text" name="userPwd1"><br>
+        비밀 번호를 다시 입력해 주세요 : <input type="text" name="userPwd2"><br>
+        이름을 입력해 주세요 : <input type="text" name="userName"><br>
+        나이를 입력해 주세요 : <input type="number" name="userAge"><br>
+        다음 중 관심있는 주류를 선택해 주세요. <br>
+        수제 맥주 : <input type="checkbox" name="liquorInterest" >
+        와인 : <input type="checkbox" name="liquorInterest" >
+        위스키 : <input type="checkbox" name="liquorInterest" ><br>
+        브랜디 : <input type="checkbox" name="liquorInterest" >
+        전통주 : <input type="checkbox" name="liquorInterest" >
+        일본주 : <input type="checkbox" name="liquorInterest" ><br>
+        기타 : <input type="text" name="liquorInterest"><br>
+        <input type="submit" value="회원 가입">
+    </form>
+</body>
+</html>
