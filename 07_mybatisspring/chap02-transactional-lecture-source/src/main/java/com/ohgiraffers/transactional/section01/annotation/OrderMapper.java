@@ -5,4 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Mapper
 public interface OrderMapper {
+    void registOrder(Order order);
+
+    void registOrderMenu(OrderMenu orderMenu);
 }

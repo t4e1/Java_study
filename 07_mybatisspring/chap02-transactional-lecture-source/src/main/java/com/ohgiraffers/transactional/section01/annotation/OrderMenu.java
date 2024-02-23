@@ -1,21 +1,30 @@
 package com.ohgiraffers.transactional.section01.annotation;
 
 public class OrderMenu {
-    private int menuCOde;
+    private int menuCode;
     private int orderCode;
     private int orderAmount;
 
     public OrderMenu() {
     }
 
-    public OrderMenu(int menuCOde, int orderCode, int orderAmount) {
-        this.menuCOde = menuCOde;
+    public OrderMenu(int menuCode, int orderAmount) {
+        this.menuCode = menuCode;
+        this.orderAmount = orderAmount;
+    }
+
+    public OrderMenu(int menuCode, int orderCode, int orderAmount) {
+        this.menuCode = menuCode;
         this.orderCode = orderCode;
         this.orderAmount = orderAmount;
     }
 
-    public int getMenuCOde() {
-        return menuCOde;
+    public void setOrderCode(int orderCode) {
+        this.orderCode = orderCode;
+    }
+
+    public int getMenuCode() {
+        return menuCode;
     }
 
     public int getOrderCode() {
@@ -29,7 +38,7 @@ public class OrderMenu {
     @Override
     public String toString() {
         return "OrderMenu{" +
-                "menuCOde=" + menuCOde +
+                "menuCOde=" + menuCode +
                 ", orderCode=" + orderCode +
                 ", orderAmount=" + orderAmount +
                 '}';
