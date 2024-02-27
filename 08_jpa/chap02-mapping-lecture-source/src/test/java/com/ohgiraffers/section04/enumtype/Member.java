@@ -1,14 +1,11 @@
-package com.ohgiraffers.section01.entity;
+package com.ohgiraffers.section04.enumtype;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
-@Entity(name="member_section01")
-@Table(name="tbl_member_section01")
+@Entity(name="member_section04")
+@Table(name="tbl_member_section04")
 public class Member {
 
     @Id
@@ -37,7 +34,10 @@ public class Member {
     private Date enrollDate;
 
     @Column(name="member_role")
-    private String memberRole;
+//    @Enumerated(EnumType.ORDINAL)   // ADMIN 과 MEMBER를 순번(index)로 생각함
+    @Enumerated(EnumType.STRING)   // ADMIN 과 MEMBER를 문자열로 생각함
+//    private String memberRole;
+    private RollType memberRole;
 
     @Column(name="status")
     private String status;
@@ -45,7 +45,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(int memberNo, String memberId, String memberPwd, String nickname, String phone, String email, String address, Date enrollDate, String memberRole, String status) {
+    public Member(int memberNo, String memberId, String memberPwd, String nickname, String phone, String email, String address, Date enrollDate, RollType memberRole, String status) {
         this.memberNo = memberNo;
         this.memberId = memberId;
         this.memberPwd = memberPwd;
@@ -122,11 +122,11 @@ public class Member {
         this.enrollDate = enrollDate;
     }
 
-    public String getMemberRole() {
+    public RollType getMemberRole() {
         return memberRole;
     }
 
-    public void setMemberRole(String memberRole) {
+    public void setMemberRole(RollType memberRole) {
         this.memberRole = memberRole;
     }
 

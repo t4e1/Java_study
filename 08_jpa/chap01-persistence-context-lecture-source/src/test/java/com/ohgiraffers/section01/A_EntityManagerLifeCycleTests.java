@@ -27,7 +27,7 @@ public class A_EntityManagerLifeCycleTests {
      *  영속성 컨텍스트(PersistenceContext)란?
      *   엔티티 매니저를 통해 엔티티를 저장하거나 조회하면 엔티티 매니저는 영속성 컨텍스트에 엔티티를 보관하고 관리한다.
      *   영속성 컨텍스트는 엔티티를 key-value 방식으로 저장하는 저장소이다.
-     *   영속성 컨텍스는 엔티티 매니저를 생성할 때 같이 하나 만들어진다.
+     *   영속성 컨텍스트는 엔티티 매니저를 생성할 때 같이 하나 만들어진다.
      *   그리고 엔티티 매니저를 통해서 영속성 컨텍스트에 접근할 수 있고, 또 관리할 수 있다.
     * */
     private static EntityManagerFactory entityManagerFactory;

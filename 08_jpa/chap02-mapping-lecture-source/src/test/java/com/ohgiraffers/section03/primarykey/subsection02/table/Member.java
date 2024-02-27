@@ -1,18 +1,20 @@
-package com.ohgiraffers.section01.entity;
+package com.ohgiraffers.section03.primarykey.subsection02.table;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
-@Entity(name="member_section01")
-@Table(name="tbl_member_section01")
+@Entity(name = "member_section03_subsection02")
+@Table(name = "tbl_member_section03_subsection02")
+@TableGenerator(
+        name = "member_seq_table_generator",
+        table = "tbl_mysequence",
+        pkColumnValue = "my_seq_member_no")
 public class Member {
 
     @Id
     @Column(name="member_no")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "member_seq_table_generator")     // Oracle 에서는 적용 안됨.
     private int memberNo;
 
     @Column(name="member_id")
