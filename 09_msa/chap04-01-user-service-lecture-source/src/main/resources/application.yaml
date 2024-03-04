@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: swcamp-user-service
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/menudb
+    username: swcamp
+    password: swcamp
+
+# jpa config
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        '[format_sql]': true
+
+# eureka client config
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:10001/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+# yml ??? ???? ?? ??
+swcamp:
+  message: Let's do MSA!
