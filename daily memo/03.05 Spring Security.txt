@@ -1,0 +1,29 @@
+spring security 
+
+로그인 시 spring security 
+
+
+포트 변경 ( 10003 ) 
+유레카 클라이언트 설정 
+news / fair service impl 구현 
+news / fair controller 구현 
+
+
+40
+38
+37
+31
+17
+
+
+
+1. README 작성 - 작성 필요 
+2. 요구사항 명세서 - 완
+3. REST-API 설계서 - 작성 필요 
+4. Github 코드 - 포크떠서 올리기 (최종본)
+5. 테스트케이스 명세서 - 작성 필요 
+6. DDD 설계(+DB Modeling) - 완
+7. 아키텍처 구성 - 작성 필요 
+
+8. 기능 구현 ( + 고도화 )
+
