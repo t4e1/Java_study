@@ -1,6 +1,7 @@
 package com.ohgiraffers.userservice.controller;
 
 import com.ohgiraffers.userservice.dto.UserDTO;
+import com.ohgiraffers.userservice.service.UserService;
 import com.ohgiraffers.userservice.vo.HelloVO;
 import com.ohgiraffers.userservice.vo.RequestUser;
 import com.ohgiraffers.userservice.vo.ResponseUser;
@@ -20,12 +21,17 @@ public class UserController {
     private Environment env;
     private HelloVO helloVo;
     private ModelMapper modelMapper;
+    private UserService userService;    //UserServiceImpl 의 타입만을 보고 있고, 실제 UserServiceImpl을 모른다.타입은닉
 
     @Autowired
-    public UserController(Environment env, HelloVO helloVO, ModelMapper modelMapper) {
+    public UserController(Environment env,
+                          HelloVO helloVO,
+                          ModelMapper modelMapper,
+                          UserService userService) {
         this.env = env;
         this.helloVo = helloVO;
         this.modelMapper = modelMapper;
+        this.userService = userService;
     }
 
     /* 설명.
@@ -52,10 +58,14 @@ public class UserController {
     @PostMapping("/users")
     public ResponseEntity<ResponseUser> registUser(@RequestBody RequestUser user) {
 
-        UserDTO newUser = modelMapper.map(user, UserDTO.class);
-        System.out.println("newUser = " + newUser);
+        /* 설명. RequestUser -> UserDTO */
+        UserDTO userDTO = modelMapper.map(user, UserDTO.class);
 
-        ResponseUser responseUser = new ResponseUser();
+        userService.registUser(userDTO);
+
+        /* 설명. UserDTO -> ResponseUser */
+        ResponseUser responseUser = modelMapper.map(userDTO, ResponseUser.class);
+
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(responseUser);
