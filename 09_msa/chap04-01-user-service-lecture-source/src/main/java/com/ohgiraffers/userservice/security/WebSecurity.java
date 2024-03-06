@@ -52,6 +52,7 @@ public class WebSecurity {
         http.authorizeHttpRequests((auth) -> auth
                 .requestMatchers(new AntPathRequestMatcher("/users/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/health-check")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/actuator/**")).permitAll()
         )
                 .authenticationManager(authenticationManager);
 

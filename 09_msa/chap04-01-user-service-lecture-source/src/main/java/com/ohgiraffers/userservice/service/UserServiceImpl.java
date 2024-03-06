@@ -1,11 +1,12 @@
 package com.ohgiraffers.userservice.service;
 
 import com.ohgiraffers.userservice.aggregate.UserEntity;
+import com.ohgiraffers.userservice.client.OrderServiceClient;
 import com.ohgiraffers.userservice.dto.UserDTO;
 import com.ohgiraffers.userservice.repository.UserRepository;
+import com.ohgiraffers.userservice.vo.ResponseOrder;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -23,13 +25,18 @@ public class UserServiceImpl implements UserService{
     private ModelMapper modelMapper;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    /* 설명. FeignClient 이후 추가할 부분. */
+    private OrderServiceClient orderServiceClient;
+
     @Autowired
     public UserServiceImpl(UserRepository userRepository,
                            ModelMapper modelMapper,
-                           BCryptPasswordEncoder bCryptPasswordEncoder) {
+                           BCryptPasswordEncoder bCryptPasswordEncoder,
+                           OrderServiceClient orderServiceClient) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.orderServiceClient = orderServiceClient;
     }
 
     @Override
@@ -76,6 +83,24 @@ public class UserServiceImpl implements UserService{
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDTO userDTO = modelMapper.map(userEntity, UserDTO.class);
+
+        return userDTO;
+    }
+
+    @Override
+    public UserDTO getUserById(String id) {
+
+        UserEntity userEntity = userRepository.findById(Long.valueOf(id))
+                .orElseThrow(() -> {
+                    return new UsernameNotFoundException("조회된 회원 없음");
+                });
+
+        UserDTO userDTO = modelMapper.map(userEntity, UserDTO.class);
+
+        /* 설명. FeignClient를 통한 통신 시 추가할 부분 */
+        List<ResponseOrder> orderList = orderServiceClient.getUserOrders(id);
+
+        userDTO.setOrders(orderList);
 
         return userDTO;
     }

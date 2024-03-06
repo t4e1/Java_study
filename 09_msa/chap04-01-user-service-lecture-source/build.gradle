@@ -29,6 +29,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+	// feignclient를 추가 시 넣을 dependency (main() 있는 클래스에 어노테이션 추가)
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	// config 서버 활용 시 추가할 내용(JWT 토큰값 관련 설정 서버 활용)
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	// application.yml 이전에 활용될 설정 파일을 사용하기 위한 디펜던시 추가
+	implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
+	// config 서버 추가 후 config 서버 refresh 를 위해 추가한 디펜던시
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
 	testImplementation 'org.springframework.security:spring-security-test'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -49,6 +59,7 @@ dependencies {
 	implementation 'org.modelmapper:modelmapper:3.2.0'
 	// 회원 가입 이후 비밀번호 암호화 시점부터 추가함
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+
 
 }
 

@@ -12,8 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-
 @RestController
 @RequestMapping("/")
 public class UserController {
@@ -66,9 +64,24 @@ public class UserController {
         /* 설명. UserDTO -> ResponseUser */
         ResponseUser responseUser = modelMapper.map(userDTO, ResponseUser.class);
 
+        /* 설명. config server 에서 제공하는 test.message 값 확인 (config file commit 후 수정 시 반영되는지 확인) */
+        System.out.println("config server의 설정값 확인:"
+                            + env.getProperty("test.message")
+                        );
+        
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(responseUser);
+    }
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<ResponseUser> getUser(@PathVariable("id") String id) {
+
+        UserDTO userDTO = userService.getUserById(id);
+
+        ResponseUser responseUser = modelMapper.map(userDTO, ResponseUser.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseUser);
     }
 
 }

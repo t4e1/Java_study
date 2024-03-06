@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9001
 
 spring:
   application:
@@ -35,11 +35,18 @@ eureka:
 swcamp:
   message: Let's do MSA!
 
-# 토큰 생성을 위한 키 생성
-token:
+## 토큰 생성을 위한 키 생성
+#token:
+#
+#  # JWT 토큰의 만료시간 설정(ms단위)(여기서는 12시간으로 설정)
+#  expiration_time: 43200000
+#
+#  # JWT 토큰의 verify signature를 위한 secret-key
+#  secret: l1Z5I9WufSD5qM0UTHXDJa1kaGxBlyhKMbx+ONkqzeRTlKdF8Bq37mA3Z8nhjRlwVUrL/u3bdkFeamIrUoWvVw==
 
-  # JWT 토큰의 만료시간 설정(ms단위)(여기서는 12시간으로 설정)
-  expiration_time: 43200000
-
-  # JWT 토큰의 verify signature를 위한 secret-key
-  secret: l1Z5I9WufSD5qM0UTHXDJa1kaGxBlyhKMbx+ONkqzeRTlKdF8Bq37mA3Z8nhjRlwVUrL/u3bdkFeamIrUoWvVw==
+# Actuator 추가 후
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans

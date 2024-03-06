@@ -1,0 +1,13 @@
+config 서버 추가 
+-> config 라이브러리, actuator 라이브러리, bootstrap 라이브러리 추가 
+
+컨피그 서버 실행 -> application.yml 설정 -> 
+
+
+Controller Mapping url 변경 
+fair command / query 
+new query  
+
+응답 메세지 변경 
+fair command / query 
+new query 
